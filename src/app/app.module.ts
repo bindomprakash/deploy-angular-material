@@ -12,6 +12,7 @@ import { LoginComponent } from './page/login/login.component';
 import { LogoutComponent } from './page/logout/logout.component';
 import { PageNotFoundComponent } from './page/page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PagenotfoundComponent } from './page/pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AboutUsComponent,
     LoginComponent,
     LogoutComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
