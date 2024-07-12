@@ -1,34 +1,14 @@
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
-
-.example-full-width {
-  width: 100%;
-}
-
-/* .example-container .mat-form-field + .mat-form-field {
-  margin-left: 8px;
-}
-.example-form {
-  min-width: 150px;
-  max-width: 250px;
-  width: 100%;
-}
-
-.example-full-width {
-  width: 100%;
-}
 .main-container{
-    border: 1px solid;
-    margin-left: 550px;
-    margin-right: 500px;
-    margin-top: 150px;
-    background-color: rgb(235, 240, 244);
+    /* border: 1px solid red; */
+    margin: 20px 110px;
+    padding: 20px 300px; /* top-bottom  left-right */
 }
-form.example-form.ng-untouched.ng-pristine.ng-invalid {
-    margin-left: 110px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-} */
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }

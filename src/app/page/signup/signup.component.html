@@ -1,0 +1,29 @@
+<div class="main-container">
+    <h2>User Registration</h2>
+    <form class="example-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Enter Name" formControlName="username" #name maxlength="20">
+            <mat-hint align="end">{{name.value.length}}/20</mat-hint>
+            <!-- <mat-hint *ngIf="myForm.get('name').touched && myForm.get('name').errors?.required">Name is required</mat-hint> -->
+            <!-- <mat-errr *ngIf="name.hasError('required')">Name is required</mat-errr> -->
+        </mat-form-field>
+    
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter Email" formControlName="email" >
+            <!-- <mat-error *ngIf="email.hasError('required')">Email is required.</mat-error> -->
+            <!-- <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">Invalid email</mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Enter City Name" formControlName="password" #name maxlength="20">
+            <mat-hint align="end">{{name.value.length}}/20</mat-hint>
+            <!-- <mat-error></mat-error> -->
+        </mat-form-field>
+    
+        <button type="submit" mat-raised-button color="primary">{{loginMode?'Signup':'Login'}}</button>&nbsp;&nbsp;
+        {{loginMode?"Already have account ?":"Don't have account ?"}} <a (click)="userLoginMode()" style="color: blue; cursor: pointer;"> {{loginMode?'Login':'Signup'}}</a>
+    </form>
+</div>

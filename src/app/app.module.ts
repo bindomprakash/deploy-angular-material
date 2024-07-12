@@ -8,11 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './appModule/material/material.module';
 import { HomeComponent } from './page/home/home.component';
 import { AboutUsComponent } from './page/about-us/about-us.component';
-import { LoginComponent } from './page/login/login.component';
 import { LogoutComponent } from './page/logout/logout.component';
 import { PageNotFoundComponent } from './page/page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PagenotfoundComponent } from './page/pagenotfound/pagenotfound.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
+import { SignupComponent } from './page/signup/signup.component';
+import { ToastrModule } from 'ngx-toastr';
+import { LoginComponent } from './page/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,19 +23,21 @@ import { PagenotfoundComponent } from './page/pagenotfound/pagenotfound.componen
     MaterialComponent,
     HomeComponent,
     AboutUsComponent,
-    LoginComponent,
     LogoutComponent,
     PageNotFoundComponent,
-    PagenotfoundComponent
+    SignupComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
