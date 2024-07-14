@@ -11,19 +11,30 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HomeComponent {
 
   userForm!: FormGroup;
-
+  updatedUser: any;
   constructor(private authService: AuthService,
-     private fb: FormBuilder,
-    ) { }
+    private fb: FormBuilder,
+  ) { }
 
   ngOnInit() {
     this.createUserForm();
-    
+    this.authService.updateUser.subscribe((res: any) => {
+      this.updatedUser = res;
+      // this.userForm.patchValue({
+      //   name: this.updatedUser.name,
+      //   email: this.updatedUser.email,
+      //   city: this.updatedUser.city,
+      //   pincode: this.updatedUser.name.pincode,
+      //   address: this.updatedUser.name.address,
+      // })
+      console.log("??????????",this.userForm);
+      
+    })
   }
 
   createUserForm() {
     this.userForm = this.fb.group({
-      name: ['', [Validators.required]],
+      name: [this.updatedUser.name || "op", [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       city: ['', [Validators.required]],
       pincode: ['', [Validators.required]],
@@ -33,7 +44,7 @@ export class HomeComponent {
 
   onSubmit() {
     if (!this.userForm.valid) {
-      return 
+      return
     }
     console.log(this.userForm.value);
     this.postUserData();

@@ -16,6 +16,7 @@ import { AuthService } from './services/auth.service';
 import { SignupComponent } from './page/signup/signup.component';
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './page/login/login.component';
+import { UserdetailsComponent } from './page/userdetails/userdetails.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LoginComponent } from './page/login/login.component';
     PageNotFoundComponent,
     SignupComponent,
     LoginComponent,
+    UserdetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@
     <div class="anchor">
         <a mat-button [routerLink]="['/home']">Home</a>
         <a mat-button [routerLink]="['/about-us']">About-Us</a>
+        <a mat-button [routerLink]="['/user-details']">User-info</a>
     </div>
     <div class="logout" *ngIf="loginMode">
         <a mat-button (click)="onLogout()">Logout</a>

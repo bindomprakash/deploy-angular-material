@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './page/page-not-found/page-not-found.comp
 import { SignupComponent } from './page/signup/signup.component';
 import { authGuard } from './authentication/auth.guard';
 import { LoginComponent } from './page/login/login.component';
+import { UserdetailsComponent } from './page/userdetails/userdetails.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "signup", pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: "logout", component: LogoutComponent },
   { path: "signup", component: SignupComponent },
   { path: "login", component: LoginComponent },
+  { path: "user-details", component: UserdetailsComponent },
   { path: "**", component: PageNotFoundComponent }
 ];
 

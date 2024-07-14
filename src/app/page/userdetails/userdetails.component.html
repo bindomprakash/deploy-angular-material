@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th *ngFor="let col of displayedColumns">{{col}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userDetails; index as i">
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.city}}</td>
+            <td>{{user.pincode}}</td>
+            <td>{{user.address}}</td>
+            <td>
+                <button type="button" class="btn btn-warning" (click)="onUpdate(user)">Edit</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger" (click)="onDelete(user._id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
