@@ -17,6 +17,8 @@ import { SignupComponent } from './page/signup/signup.component';
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './page/login/login.component';
 import { UserdetailsComponent } from './page/userdetails/userdetails.component';
+import { ForgotPasswordComponent } from './page/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './page/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { UserdetailsComponent } from './page/userdetails/userdetails.component';
     SignupComponent,
     LoginComponent,
     UserdetailsComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

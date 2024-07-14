@@ -1,10 +1,10 @@
 <div class="main-container">
     <h2>User Login</h2>
     <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-       
+
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Email</mat-label>
-            <input matInput placeholder="Enter Email" formControlName="email" >
+            <input matInput placeholder="Enter Email" formControlName="email">
             <!-- <mat-error *ngIf="email.hasError('required')">Email is required.</mat-error> -->
             <!-- <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">Invalid email</mat-error> -->
         </mat-form-field>
@@ -15,9 +15,12 @@
             <mat-hint align="end">{{name.value.length}}/20</mat-hint>
             <!-- <mat-error></mat-error> -->
         </mat-form-field>
-    
+
         <button type="submit" mat-raised-button color="primary">{{loginMode?'Login':'Signup'}}</button>&nbsp;&nbsp;
-        {{loginMode?"Don't have account ?":"Already have account ?"}} <a (click)="userLoginMode()" style="color: blue; cursor: pointer;"> {{loginMode?'Signup':'Login'}}</a>
+        {{loginMode?"Don't have account ?":"Already have account ?"}} <a (click)="userLoginMode()"
+            style="color: blue; cursor: pointer;"> {{loginMode?'Signup':'Login'}}</a><br>
+        <div class="forgot">
+            Forgot password: <a [routerLink]="['/forgot-password']">Forgot password</a>
+        </div>
     </form>
 </div>
-

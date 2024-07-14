@@ -15,6 +15,8 @@ export class AuthService {
   userDetails_api = "http://localhost:5000/api/emp/user-details";
   userDelete_api = "http://localhost:5000/api/emp/user-delete";
   updateUser_api = "http://localhost:5000/api/emp/user-details";
+  forgotPassword_api = "http://localhost:5000/forgot-password";
+  resetPassword_api = "http://localhost:5000/reset-password/:id/:token";
 
   token = localStorage.getItem('token');
   header = new HttpHeaders({
@@ -47,5 +49,13 @@ export class AuthService {
 
   updateUserById(userId: any) {
     return this.http.patch(this.updateUser_api, userId);
+  }
+
+  forgotPassword(user: any) {
+    return this.http.post(this.forgotPassword_api, user);
+  }
+
+  resetPassword(user: any) {
+    return this.http.post(this.resetPassword_api, user)
   }
 }

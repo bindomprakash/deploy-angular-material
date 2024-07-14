@@ -8,6 +8,8 @@ import { SignupComponent } from './page/signup/signup.component';
 import { authGuard } from './authentication/auth.guard';
 import { LoginComponent } from './page/login/login.component';
 import { UserdetailsComponent } from './page/userdetails/userdetails.component';
+import { ForgotPasswordComponent } from './page/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './page/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "signup", pathMatch: 'full' },
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: "signup", component: SignupComponent },
   { path: "login", component: LoginComponent },
   { path: "user-details", component: UserdetailsComponent },
+  { path: "forgot-password", component: ForgotPasswordComponent },
+  { path: "reset-password/:id/:token", component: ResetPasswordComponent },
   { path: "**", component: PageNotFoundComponent }
 ];
 
