@@ -27,14 +27,14 @@ export class HomeComponent {
       //   pincode: this.updatedUser.name.pincode,
       //   address: this.updatedUser.name.address,
       // })
-      console.log("??????????",this.userForm);
-      
+      console.log("??????????", this.userForm);
+
     })
   }
 
   createUserForm() {
     this.userForm = this.fb.group({
-      name: [this.updatedUser.name || "op", [Validators.required]],
+      name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       city: ['', [Validators.required]],
       pincode: ['', [Validators.required]],
@@ -51,12 +51,15 @@ export class HomeComponent {
   }
 
   postUserData() {
+
     const userData = this.userForm.value;
     const token = localStorage.getItem("token");
+
     const header = new HttpHeaders({
       "Content-Type": "application/json",
       "Authorization": `Bearer ${token}`
     })
+
     this.authService.createUser(userData, header).subscribe((res: any) => {
       console.log("user responce: ", res);
     },

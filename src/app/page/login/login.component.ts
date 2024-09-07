@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent {
   loginForm!: FormGroup
   loginMode: boolean = true;
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private toastr: ToastrService) { }
   ngOnInit() {
     this.createSignupForm();
   }
@@ -31,9 +32,18 @@ export class LoginComponent {
   loginUser() {
     this.authService.getLoginUser(this.loginForm.value).subscribe((res: any) => {
       localStorage.setItem("token", res.message.refreshToken);
-      if (res.message.refreshToken) {
-        this.router.navigateByUrl('home');
+      console.log(">>>>>>>>>>",res);
+      
+      if(res.message == 'Login success with email verification'){
+        this.toastr.success("Please verify your email", "mail verification");
+        if(res.user.isVerified == 1){
+          this.router.navigateByUrl('home');
+        }else{
+          console.log("Email not verified ..");
+          
+        }
       }
+      
     },
       (err) => {
         console.log("login error: ", err);

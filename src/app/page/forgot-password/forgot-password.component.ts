@@ -31,6 +31,7 @@ export class ForgotPasswordComponent {
     
     this.authService.forgotPassword(this.forgetForm.value).subscribe((res: any) => {
       console.log(res);
+      window.alert("Reset password link sended on your mail successfully.");
     }, (err) => {
       console.log("Forget password", err);
     })

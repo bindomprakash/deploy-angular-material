@@ -10,13 +10,13 @@ export class AuthService {
   subject = new Subject();
   updateUser = new Subject();
   signup_api = "http://localhost:5000/api/emp/signup";
-  login_api = "http://localhost:5000/api/emp/login";
+  login_api = "http://localhost:7000/api/user/login";
   user_api = "http://localhost:5000/api/emp/user";
   userDetails_api = "http://localhost:5000/api/emp/user-details";
   userDelete_api = "http://localhost:5000/api/emp/user-delete";
   updateUser_api = "http://localhost:5000/api/emp/user-details";
-  forgotPassword_api = "http://localhost:5000/forgot-password";
-  resetPassword_api = "http://localhost:5000/reset-password/:id/:token";
+  forgotPassword_api = "http://localhost:5000/api/emp/forgot-password";
+  resetPassword_api = "http://localhost:5000/api/emp/reset-password";
 
   token = localStorage.getItem('token');
   header = new HttpHeaders({
@@ -55,7 +55,9 @@ export class AuthService {
     return this.http.post(this.forgotPassword_api, user);
   }
 
-  resetPassword(user: any) {
-    return this.http.post(this.resetPassword_api, user)
+  resetPassword(userId: any, userToken: any, user: any) {
+    console.log(`${this.resetPassword_api}/${userId}/${userToken}`, user);
+
+    return this.http.post(`${this.resetPassword_api}/${userId}/${userToken}`, user)
   }
 }
